@@ -1,8 +1,8 @@
 - name: Installing nginx
-  ansible.builtin.yum:
+  ansible.builtin.dnf:
    name: nginx
    state: installed
-   enabled: yes
+   enabled: true
 
 - name: Removing default content from web server
   ansible.builtin.file:
