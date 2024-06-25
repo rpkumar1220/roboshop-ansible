@@ -1,8 +1,8 @@
 - name: Installing nginx
-  ansible.legacy.dnf:
+  ansible.builtin.dnf:
    name: nginx
-   state: present
-   enabled: true
+   state: installed
+
 
 - name: Removing default content from web server
   ansible.builtin.file:
@@ -24,4 +24,5 @@
   ansible.builtin.service:
     name: nginx
     state: restarted
+    enabled: true
 
