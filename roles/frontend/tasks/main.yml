@@ -2,7 +2,7 @@
   ansible.builtin.yum:
    name: nginx
    state: installed
-   enabled: true
+   enabled: yes
 
 - name: Removing default content from web server
   ansible.builtin.file:
