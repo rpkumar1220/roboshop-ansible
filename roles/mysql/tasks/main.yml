@@ -13,7 +13,7 @@
 
 - name: Enabling and starting  mysql service
   ansible.builtin.systemd:
-    name: mysql-community-server
+    name: mysql-server
     state: started
     enabled: true
 
