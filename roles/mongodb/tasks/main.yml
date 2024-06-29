@@ -1,3 +1,7 @@
+- name: Testing
+  ansible.builtin.debug:
+    msg: "Connecting"
+
 - name: Setting up mongo repo file
   ansible.builtin.copy:
     src: mongo.repo
