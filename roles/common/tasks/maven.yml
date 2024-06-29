@@ -4,7 +4,7 @@
     state: installed
 
 - name: Setting up app content
-  ansible.builtin.tasks:
+  ansible.builtin.import_tasks:
     file: app_setup.yml
 
 - name: Downloading dependencies and building application
@@ -13,11 +13,11 @@
     chdir: /app
 
 - name: Setting up service
-  ansible.builtin.tasks:
+  ansible.builtin.import_task:
     file: conf_setup.yml
 
 - name: Restarting Service
-  ansible.builtin.tasks:
+  ansible.builtin.import_task:
     file: service_setup.yml
 
 - name: Installing mysql client
@@ -26,7 +26,7 @@
     state: installed
 
 - name: loading schema
-  ansible.builtin.tasks:
+  ansible.builtin.import_task:
     file: mysql_schema.yml
 
 - name: restarting Shipping service
