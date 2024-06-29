@@ -1,4 +1,3 @@
-
 - name: Installing maven
   ansible.builtin.dnf:
     name: maven
@@ -19,7 +18,7 @@
 
 - name: Restarting Service
   ansible.builtin.tasks:
-   file: service_setup.yml
+    file: service_setup.yml
 
 - name: Installing mysql client
   ansible.builtin.dnf:
