@@ -1,4 +1,4 @@
 - name: setting up configuration
   ansible.builtin.template:
-    src: {{catalogue}}.service
+    src: "{{catalogue}}".service
     dest: /etc/systemd/system/{{component}}.service
