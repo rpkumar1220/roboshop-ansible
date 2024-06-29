@@ -1,6 +1,6 @@
 - name: Reloading Dameon
   ansible.builtin.systemd:
-    name: {{component}}
+    name: "{{component}}"
     daemon-reload: true
     state: restarted
     enabled: true
