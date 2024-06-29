@@ -1,5 +1,3 @@
-- name: Setting up Shipping component
-  ansible.builtin.shell: dnf install maven -y
 
 - name: Installing maven
   ansible.builtin.dnf:
