@@ -1,0 +1,30 @@
+- name: Disabling the default repo and enabling specific repo
+  ansible.builtin.shell: dnf module disable nodejs -y ; dnf module enable nodejs:18 -y
+
+- name: Installing NodeJS
+  ansible.builtin.dnf:
+    name: nodejs
+    state: installed
+
+- name: Setting up App content
+  ansible.builtin.import_tasks:
+    file: app_setup.yml
+
+- name: Installing Dependencies
+  ansible.builtin.shell: npm install
+  args:
+    chdir: /app
+
+- name: Setting up configuration for service
+  ansible.builtin.import_tasks:
+    file: conf_setup.yml
+
+- name: Setting up systemd service
+  ansible.builtin.import_tasks:
+    file: service_setup.yml
+
+- name: Setting up MongoDB client
+  ansible.builtin.import_tasks:
+    file: mongo_client_setup.yml
+  when: is_schema_needed
+

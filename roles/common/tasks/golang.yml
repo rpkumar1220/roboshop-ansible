@@ -1,0 +1,22 @@
+- name: Installing GOlang
+  ansible.builtin.dnf:
+    name: golang
+    state: installed
+
+- name: Setting up app content
+  ansible.builtin.import_tasks:
+    file: app_setup.yml
+
+- name: Downloading dependencies
+  ansible.builtin.shell: go mod init dispatch ;  go get ;  go build
+  args:
+    chdir: /app
+
+- name: Setting up configuration
+  ansible.builtin.import_tasks:
+    file: conf_setup.yml
+
+- name: Restarting service
+  ansible.builtin.import_tasks:
+    file: service_setup.yml
+

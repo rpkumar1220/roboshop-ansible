@@ -1,0 +1,38 @@
+- name: Setting up Shipping component
+  ansible.builtin.shell: dnf install maven -y
+
+- name: Installing maven
+  ansible.builtin.dnf:
+    name: maven
+    state: installed
+
+- name: Setting up app content
+  ansible.builtin.tasks:
+    file: app_setup.yml
+
+- name: Downloading dependencies and building application
+  ansible.builtin.shell: mvn clean package ;   mv target/shipping-1.0.jar shipping.jar
+  args:
+    chdir: /app
+
+- name: Setting up service
+  ansible.builtin.tasks:
+  file: conf_setup.yml
+
+- name: Restarting Service
+  ansible.builtin.tasks:
+   file: service_setup.yml
+
+- name: Installing mysql client
+  ansible.builtin.dnf:
+    name: mysql
+    state: installed
+
+- name: loading schema
+  ansible.builtin.tasks:
+    file: mysql_schema.yml
+
+- name: restarting Shipping service
+  ansible.builtin.systemd:
+    name: {{component}}
+    state: restarted

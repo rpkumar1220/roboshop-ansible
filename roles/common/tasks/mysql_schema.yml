@@ -1,0 +1,3 @@
+- name: Loading mysql schema
+  ansible.builtin.shell: mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/schema/shipping.sql
+

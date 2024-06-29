@@ -1,0 +1,12 @@
+- name: Setting up mongodb repo
+  ansible.builtin.template:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: Installing MongoDB client
+  ansible.builtin.dnf:
+    name: mongodb-org-shell
+    state: installed
+
+- name: Loading schema from mongodb
+  ansible.builtin.shell: mongo --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js

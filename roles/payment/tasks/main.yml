@@ -1,0 +1,5 @@
+- name: Setting up Payment component
+  ansible.builtin.import_tasks:
+   name: common
+   tasks_from: python.yml
+
