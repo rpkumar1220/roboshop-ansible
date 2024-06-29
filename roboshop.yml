@@ -1,5 +1,6 @@
 - name: Setting up Roboshop project
   hosts: all
+  connection: remote
   become: true
   roles:
     - "{{role_name}}"
