@@ -9,4 +9,4 @@
     state: installed
 
 - name: Loading schema from mongodb
-  ansible.builtin.shell: mongo --host 172.31.30.236 </app/schema/catalogue.js
+  ansible.builtin.shell: mongo --host 172.31.26.173 </app/schema/catalogue.js
