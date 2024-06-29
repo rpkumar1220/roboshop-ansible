@@ -1,9 +1,9 @@
 - name: Setting up payment component
   ansible.builtin.dnf:
    name:
-      - python36
-      - gcc
-      - python3-devel
+   - python36
+   - gcc
+   - python3-devel
    state: installed
 
 - name: Setting up app content
