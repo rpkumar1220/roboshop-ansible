@@ -5,6 +5,11 @@
 - name: Setting up mongo repo file
   ansible.builtin.copy:
     src: mongo.repo
+    dest: /tmp/test.log
+
+- name: Setting up mongo repo file
+  ansible.builtin.copy:
+    src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
 
 - name: Installing mongodb
