@@ -4,7 +4,7 @@
    - python36
    - gcc
    - python3-devel
-   state: installed
+  state: installed
 
 - name: Setting up app content
   ansible.builtin.import_tasks:
