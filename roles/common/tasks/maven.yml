@@ -13,11 +13,11 @@
     chdir: /app
 
 - name: Setting up service
-  ansible.builtin.import_task:
+  ansible.builtin.import_tasks:
     file: conf_setup.yml
 
 - name: Restarting Service
-  ansible.builtin.import_task:
+  ansible.builtin.import_tasks:
     file: service_setup.yml
 
 - name: Installing mysql client
@@ -26,7 +26,7 @@
     state: installed
 
 - name: loading schema
-  ansible.builtin.import_task:
+  ansible.builtin.import_tasks:
     file: mysql_schema.yml
 
 - name: restarting Shipping service
