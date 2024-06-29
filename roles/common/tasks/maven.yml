@@ -14,7 +14,7 @@
 
 - name: Setting up service
   ansible.builtin.tasks:
-  file: conf_setup.yml
+    file: conf_setup.yml
 
 - name: Restarting Service
   ansible.builtin.tasks:
